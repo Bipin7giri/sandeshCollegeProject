@@ -25,7 +25,7 @@
                      class="w-full h-full"
                      />
                </div>
-           <h1>hi</h1>
+               
                <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
                   <h3>
                      <a

@@ -24,7 +24,7 @@ class MoreDetails extends Component
          }
         
          $this->rating = ($count/$total)*100;
-
+            // dd($this->rating);
         }
         
     public function save()
