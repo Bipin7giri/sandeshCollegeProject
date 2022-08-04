@@ -14,11 +14,7 @@ class CollegeList extends Component
     protected $queryString = ['search'];
     public function render()
     {
-        $count  = DB::table('comments')->where('comment','like','%'.'good'.'%')->orWhere('comment','like','%'.'ok'.'%')->orWhere('comment','like','%'.'best'.'%')->orWhere('comment','like','%'.'superb'.'%')->orWhere('comment','like','%'.'outsanding'.'%')->count();
-        $total  = DB::table('comments')->count();
-      
-       
-        $this->rating = ($count/$total)*100;
+    
 
         $collegeDetails = CollegeDetails::when($this->search,function($q){
             return $q->where('college_name','like','%'.$this->search.'%')
