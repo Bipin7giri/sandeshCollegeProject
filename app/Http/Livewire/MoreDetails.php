@@ -14,14 +14,17 @@ class MoreDetails extends Component
 
     public function mount($college_id){
           $this->college_id = $college_id;
-          $count  = DB::table('comments')->where('id',$college_id)->where('comment','like','%'.'good'.'%')->orWhere('comment','like','%'.'ok'.'%')->orWhere('comment','like','%'.'best'.'%')->orWhere('comment','like','%'.'superb'.'%')->orWhere('comment','like','%'.'outsanding'.'%')->count();
-          $total  = DB::table('comments')->count();
+          $count  = DB::table('comments')->where('college_details_id',$college_id)->where('comment','like','%'.'good'.'%')->orWhere('comment','like','%'.'ok'.'%')->orWhere('comment','like','%'.'best'.'%')->orWhere('comment','like','%'.'superb'.'%')->orWhere('comment','like','%'.'outsanding'.'%')->count();
+          $total = DB::table('comments')->where('college_details_id',$this->college_id)->count();
+    
+       
          if($total==0){
             $total=1;
            
          }
-         dd("gielllllo");
+        
          $this->rating = ($count/$total)*100;
+
         }
         
     public function save()
